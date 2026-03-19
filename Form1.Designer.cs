@@ -33,6 +33,8 @@
             this.EchoMessageList = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,11 +91,35 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "현재대화: 0개";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDelete.Font = new System.Drawing.Font("한컴 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.Location = new System.Drawing.Point(621, 301);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(135, 40);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnClearAll.Font = new System.Drawing.Font("한컴 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClearAll.Location = new System.Drawing.Point(621, 260);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(135, 40);
+            this.btnClearAll.TabIndex = 6;
+            this.btnClearAll.Text = "대화기록삭제";
+            this.btnClearAll.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClearAll);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EchoMessageList);
@@ -113,6 +139,8 @@
         private System.Windows.Forms.ListBox EchoMessageList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnClearAll;
     }
 }
 
