@@ -9,7 +9,7 @@
   - Label , TextBox , Button , ListBox
 - 사용한 기술과 구현한 기능 :
  -  Visual Studio를 활용한 UI
- -  ```csharp String``` 을 활용하여 사용자 입력 데이터 처리
+ -  ```csharp String 을 활용하여 사용자 입력 데이터 처리
  -  추가 후 `TextBox`의 내용을 비운 후 다음 텍스트를 받을 준비를 합니다.
 
 ## 실행 화면 (과제1)
