@@ -12,16 +12,19 @@ namespace EchoMessenger
 {
     public partial class Form1 : Form
     {
+        private const int MaxMessageLength = 50;
+
         public Form1()
         {
             InitializeComponent();
             
             button1.Click += Button1_Click; // button1의 Click 이벤트 핸들러 등록
             TextMessage.KeyDown += TextBox1_KeyDown; // TextBox의 KeyDown 이벤트 핸들러 등록
+            TextMessage.KeyPress += TextMessage_KeyPress; // 글자수 제한 초과 입력 방지
             btnDelete.Click += BtnDelete_Click; // 삭제 버튼 클릭 이벤트
             btnClearAll.Click += BtnClearAll_Click; // 대화기록삭제 버튼 클릭 이벤트
             
-            TextMessage.MaxLength = 50;
+            TextMessage.MaxLength = MaxMessageLength;
             // 글자수 제한: MaxLength를 50으로 설정
         }
 
@@ -38,6 +41,12 @@ namespace EchoMessenger
 
             typed_msg = typed_msg.Trim(); // 문자열 정제: Trim()으로 앞뒤 공백 제거
 
+            if (typed_msg.Length > MaxMessageLength)
+            {
+                MessageBox.Show("메시지는 최대 50자까지 전송할 수 있습니다.", "입력 제한", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             
             string timestamp = DateTime.Now.ToString("[HH:mm:ss]");
             string message_with_timestamp = timestamp + " " + typed_msg; // 타임스탬프 추가: 현재 시간을 [HH:mm:ss] 형식으로 추가
@@ -53,11 +62,32 @@ namespace EchoMessenger
 
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && e.KeyCode == Keys.V && Clipboard.ContainsText())
+            {
+                string clipboardText = Clipboard.GetText();
+                int futureLength = TextMessage.TextLength - TextMessage.SelectionLength + clipboardText.Length;
+
+                if (futureLength > MaxMessageLength)
+                {
+                    e.SuppressKeyPress = true;
+                    MessageBox.Show("메시지는 최대 50자까지 입력할 수 있습니다.", "입력 제한", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
             
             if (e.KeyCode == Keys.Return) // Enter 키로도 전송 가능하게 구현
             {
                 Button1_Click(null, null); // Button1_Click 메서드 호출
                 e.Handled = true; // Enter 키의 기본 동작(새로운 줄) 방지
+            }
+        }
+
+        private void TextMessage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && TextMessage.TextLength >= MaxMessageLength && TextMessage.SelectionLength == 0)
+            {
+                e.Handled = true;
+                MessageBox.Show("메시지는 최대 50자까지 입력할 수 있습니다.", "입력 제한", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 //GitHub Copilot을 활용한 과제4번 데이터 관리 및 심화기능 코드 
