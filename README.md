@@ -17,6 +17,9 @@
 
 <img width="877" height="484" alt="스크린샷 2026-03-19 112055" src="https://github.com/user-attachments/assets/d81dd0d2-97db-454e-9cdb-2c011048a477" />
 
+![과제2 실행화면](./img/img1_1.png)
+![과제2 실행화면](./img/img1_2.png)
+![과제2 실행화면](./img/img1_3.png)
 
 - 과제 내용
   - `ListBox`를 중앙에 배치하고 하단에 `TextBox`를 배치하며 기본 UI를 구성함.
