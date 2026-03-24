@@ -73,7 +73,9 @@
 ![과제4 실행화면](./img/4_1.png)
 ![과제4 실행화면](./img/4_2.png)
 ![과제4 실행화면](./img/4_3.png)
-![과제4 실행화면](./img/4_4.png)
+
+<img width="867" height="493" alt="스크린샷 2026-03-23 135858" src="https://github.com/user-attachments/assets/91db59ab-833f-4dc9-a5b9-0de9ea058cab" />
+
 
 
 - 과제 내용
